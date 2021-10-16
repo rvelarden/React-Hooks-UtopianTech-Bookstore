@@ -12,7 +12,7 @@ const items = [
     id: 2,
     name: "Architect or Bee?: The Human/Technology Relationship",
     image: "https://i.pinimg.com/originals/73/73/d8/7373d864a3dcb4534dc00fda64483674.jpg",
-    likes: 2027,
+    "likes": 2027,
     price: 1,
   },
   {
