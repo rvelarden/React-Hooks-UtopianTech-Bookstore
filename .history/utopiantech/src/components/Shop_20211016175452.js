@@ -99,7 +99,7 @@ const Shop = (item) => {
       <h2>{`Price: $${item.price}`}</h2>
       <img src={item.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
       <h2>Likes: {item.likes}</h2>
-      <button onClick={()=> setLike(console.log(likes + 1))}>Like</button>
+      <button onClick={()=> setLike(console.log(.likes + 1))}>Like</button>
       <button type="submit" onClick={() => addToCart(item)}>Add</button>
       <h2>{amountOfItems(item.id)} x ${item.price}) {`${item.name}`}</h2>
       <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
