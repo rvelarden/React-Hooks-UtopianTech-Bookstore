@@ -69,7 +69,7 @@ const allItems = [
   
 ];
 
-const Shop = (item) => {
+const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const [items, setItems] = React.useState(allItems)
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
@@ -92,9 +92,10 @@ const Shop = (item) => {
   };
 
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
-  const updateLike = (item) =>  setItems(items.map(i => {
-    if (i !== item) {
-      return i
+  
+  const updateLike = (item) =>  setItems(items.map(indItem => {
+    if (indItem !== item) {
+      return indItem
     } else {
       return {...item, likes: item.likes + 1}
     }
