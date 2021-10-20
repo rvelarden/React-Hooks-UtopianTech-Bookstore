@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ansiHTML from "ansi-html-community"
 
-const items = [
+
+const allItems = [
   {
     id: 1,
     name: "The Rise and Decline of Patriarchal Systems",
@@ -62,7 +62,7 @@ const items = [
     id: 9, 
     name: "If Then: How the Simulmatics Corporation Invented the Future",
     image: "https://images-na.ssl-images-amazon.com/images/I/41wf6nnKIBL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
-    likes: 0,
+    likes: 8000,
     price: 1
   }
   
@@ -71,7 +71,7 @@ const items = [
 
 const Shop = (item) => {
   const [cart, setCart] = React.useState([]);
-  const [like, setLike] = React.useState(item.likes)
+  const [items, setItems] = React.useState(allItems)
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
@@ -92,6 +92,13 @@ const Shop = (item) => {
   };
 
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
+  const updateLike = (item) =>  setItems(items.map(i => {
+    if (i !== item) {
+      return i
+    } else {
+      return {...item, likes: item.likes + 1}
+    }
+  }))
   
 
   const listItemsToBuy = () => items.map((item) => (
@@ -100,19 +107,19 @@ const Shop = (item) => {
       <h2>{`Price: $${item.price}`}</h2>
       <img src={item.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
       <h2>Likes: {item.likes}</h2>
-      <button onClick={()=> setLike(console.log(item.likes + 1))}>Like</button>
+      <button onClick={()=> updateLike(item)}>Like</button>
       <button type="submit" onClick={() => addToCart(item)}>Add</button>
       <h2>{amountOfItems(item.id)} x ${item.price}) {`${item.name}`}</h2>
       <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
     </div>
   ));
 
-  const listItemsInCart = () => items.map((item) => (
-    <div key={item.id}>
-      ({amountOfItems(item.id)} x ${item.price}) {`${item.name}`}
-      <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
-    </div>
-  ));
+  // const listItemsInCart = () => items.map((item) => (
+  //   <div key={item.id}>
+  //     ({amountOfItems(item.id)} x ${item.price}) {`${item.name}`}
+  //     <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
+  //   </div>
+  // ));
 
   return (
     <div>
