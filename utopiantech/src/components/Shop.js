@@ -11,7 +11,7 @@ const allItems = [
   },
   {
     id: 2,
-    name: "Architect or Bee?:The Human/Technology Relationship",
+    name: "Architect or Bee?: The Human/Technology Relationship",
     image: "https://i.pinimg.com/originals/73/73/d8/7373d864a3dcb4534dc00fda64483674.jpg",
     likes: 2027,
     price: 1,
@@ -41,14 +41,14 @@ const allItems = [
     id: 6,
     name: "Alan Turing: The Enigma: The Centenary Edition",
     image: "https://img.thriftbooks.com/api/images/m/6da6b05beb1f54981b588ee2a84e6f0b13a436f9.jpg",
-    likes: 2,
+    likes: 2000,
     price: 1
   },
   {
     id: 7,
     name: "Ada Lovelace",
     image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcToAwcGt318m2KUns8b-JsZ8pbIjfDPfR22lytVg425-n8Vl00vYj3dMd245psSJ_mclMm6uHpgdvt0PTQX1CnIQ1do_8v0ROHhKl6uOeyOOFWMzWJaL6M4&usqp=CAc",
-    likes: 2,
+    likes: 900,
     price: 1
   },
   {
@@ -71,8 +71,9 @@ const allItems = [
 
 const Shop = () => {
   const [cart, setCart] = React.useState([]);
-  const [items, setItems] = React.useState(allItems)
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
+  const [items, setItems] = React.useState(allItems)
+  const [disable, setDisable] = React.useState(false)
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
   
@@ -99,19 +100,34 @@ const Shop = () => {
     } else {
       return {...item, likes: item.likes + 1}
     }
+
+  }))
+
+  const decreaseLike = (item) =>  setItems(items.map(indItem => {
+    if (indItem !== item) {
+      return indItem
+    } else {
+      return {...item, likes: item.likes - 1}
+    }
+
   }))
   
 
   const listItemsToBuy = () => items.map((item) => (
     <div key={item.id} className="card">
-      <h2>{`${item.name}`}</h2>
+      <div className="font-text"><h2>{`${item.name}`}</h2></div>
       <h2>{`Price: $${item.price}`}</h2>
       <img src={item.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
       <h2>Likes: {item.likes}</h2>
-      <button onClick={()=> updateLike(item)}>Like </button>
-      <button type="submit" onClick={() => addToCart(item)}>Add</button>
+      <div>
+      <button onClick={()=> setItems() ? decreaseLike(item) : updateLike(item)}> Like </button>
+      <button type="submit" onClick={() => addToCart(item)}> Add </button>
+      </div>
+      <div>
+        
+      </div>
       <h2>{amountOfItems(item.id)} x ${item.price}) {`${item.name}`}</h2>
-      <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
+      <button type="submit" onClick={() => removeFromCart(item)}> Remove </button>
     </div>
   ));
 
@@ -123,7 +139,7 @@ const Shop = () => {
   // ));
 
   return (
-    <div>
+    <div >
         <br></br>
         <br></br>
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH

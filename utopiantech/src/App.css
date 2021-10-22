@@ -24,17 +24,17 @@ body {
 .card {
   text-align: center;
   border: grey solid 1px;
-  padding: 3rem;
+  padding: 1rem;
   width: 20rem;
   height: 49rem;
   display: inline-grid;
   margin: 3rem 5rem;
-  box-shadow: 3px 4px #4b4de0
-  
+  box-shadow: 3px 4px #4b4de0;
+  background-color: #e7e552;
 }
 
-.background-color{
-  background-color: #e7e552;
+.font-text{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .book-avatar {
