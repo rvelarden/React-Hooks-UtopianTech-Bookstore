@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 const allItems = [
   {
     id: 1,
@@ -65,15 +64,13 @@ const allItems = [
     likes: 8000,
     price: 1
   }
-  
-  
-];
+]
 
 const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
-  const [disable, setDisable] = React.useState(false)
+  const [stateLike, setLikes] = React.useState(false)
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
   
@@ -93,26 +90,22 @@ const Shop = () => {
   };
 
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
-  
+
   const updateLike = (item) =>  setItems(items.map(indItem => {
-    if (indItem !== item) {
-      return indItem
-    } else {
-      return {...item, likes: item.likes + 1}
-    }
-
+    document.getElementById("myBtn").disabled = true
+    setLikes(likeState => ({
+      like: !likeState.like  
   }))
+      if (indItem !== item) {
+        console.log(item.id)
+        return indItem
+      } 
+      else {
+        return {...item, likes: item.likes + 1}
+      }
+    }))
 
-  const decreaseLike = (item) =>  setItems(items.map(indItem => {
-    if (indItem !== item) {
-      return indItem
-    } else {
-      return {...item, likes: item.likes - 1}
-    }
-
-  }))
-  
-
+  document.getElementById('myBtn')
   const listItemsToBuy = () => items.map((item) => (
     <div key={item.id} className="card">
       <div className="font-text"><h2>{`${item.name}`}</h2></div>
@@ -120,7 +113,7 @@ const Shop = () => {
       <img src={item.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
       <h2>Likes: {item.likes}</h2>
       <div>
-      <button onClick={()=> setItems() ? decreaseLike(item) : updateLike(item)}> Like </button>
+      <button id="myBtn" type='button' onClick={()=> updateLike(item)}> {stateLike ? "Liked!" : "Like"} </button>
       <button type="submit" onClick={() => addToCart(item)}> Add </button>
       </div>
       <div>
@@ -129,7 +122,7 @@ const Shop = () => {
       <h2>{amountOfItems(item.id)} x ${item.price}) {`${item.name}`}</h2>
       <button type="submit" onClick={() => removeFromCart(item)}> Remove </button>
     </div>
-  ));
+  ))
 
   // const listItemsInCart = () => items.map((item) => (
   //   <div key={item.id}>
@@ -151,7 +144,7 @@ const Shop = () => {
         <button className="center-button" onClick={() => setCart([])}>Clear</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Shop;
+export default Shop
