@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 
 const allItems = [
   {
@@ -70,7 +70,7 @@ const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
-  const [text, setText] = React.useState(false)
+  // const [text, setText] = React.useState(false)
   const [disable, setDisable] = React.useState(false)
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
@@ -94,11 +94,11 @@ const Shop = () => {
 
   const updateLike = useCallback(
     (item) => {
-      // console.log('Click happened');
     setItems(items.map(indItem => {
   
     setDisable(prevState => ({...prevState, disable: true}))
-    setText(likeState => ({...likeState, text: !likeState}))
+    // setText(likeState => ({...likeState, text: console.log(!likeState)}))
+    
 
       if (indItem !== item) {
         console.log(item.id)
@@ -112,22 +112,6 @@ const Shop = () => {
     [], // Tells React to memoize regardless of arguments.
   );
 
-
-  // const updateLike = (item) =>  
-  // setItems(items.map(indItem => {
-  
-  //   setLikes(rosterState => ({
-  //     stateLike: !rosterState.stateLike  
-  //   }))
-  //     if (indItem !== item) {
-  //       console.log(item.id)
-  //       return {...indItem}
-  //     } 
-  //     else {
-  //       return {...item, likes: item.likes + 1}
-  //     }
-  //   }))
-
   
   const listItemsToBuy = () => items.map((book) => (
     <div key={book.id} className="card">
@@ -136,7 +120,7 @@ const Shop = () => {
       <img src={book.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
       <h2>Likes: {book.likes}</h2>
       <div>
-      <button id="myBtn" disable={items.disable} onClick={()=> updateLike(book)}> {text ? "Liked!" : "Like"} </button>
+      <button disable={items.disable} text={items.text} onClick={()=> updateLike(book)}> {book.liked ? "Liked!" : "Like"} </button>
       <button type="submit" onClick={() => addToCart(book)}> Add </button>
       </div>
       <div>
@@ -144,18 +128,17 @@ const Shop = () => {
       </div>
       <h2>{amountOfItems(book.id)} x ${book.price}) {`${book.name}`}</h2>
       <button type="submit" onClick={() => removeFromCart(book)}> Remove </button>
-      {/* <button onClick={memoizedHandleClick()}>Click Me</button> */}
     </div>
   ))
 
 
 
-  // const listItemsInCart = () => items.map((item) => (
-  //   <div key={item.id}>
-  //     ({amountOfItems(item.id)} x ${item.price}) {`${item.name}`}
-  //     <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
-  //   </div>
-  // ));
+  const listItemsInCart = () => items.map((item) => (
+    <div key={item.id}>
+      ({amountOfItems(item.id)} x ${item.price}) {`${item.name}`}
+      <button type="submit" onClick={() => removeFromCart(item)}>Remove</button>
+    </div>
+  ));
 
   return (
     <div >
