@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 
- const allItems = [
+  allItems = [
     {
       id: 1,
       name: "The Rise and Decline of Patriarchal Systems",
@@ -68,7 +68,7 @@ import React, { useCallback, useEffect, useState } from "react";
   ]
 
 
-const Shop = () => {
+const Shop = (allItems) => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
@@ -77,20 +77,20 @@ const Shop = () => {
   const [search, setSearch] = useState("");
   const [filteredusers, setFilteredusers] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/books")
-  //     .then(res => res.json())
-  //     .then(data =>{setItems(data)})
+  useEffect(() => {
+    fetch("http://localhost:3000/books")
+      .then(res => res.json())
+      .then(data =>{setItems(data)})
      
-  // }, [])
+  }, [])
 
-  // useEffect(() => {
-  //   setFilteredusers(
-  //     items.filter((item) =>
-  //       item.name.toLowerCase().includes(search.toLowerCase())
-  //     )
-  //   );
-  // }, [search, items]);
+  useEffect(() => {
+    setFilteredusers(
+      items.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, items]);
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
   
@@ -112,20 +112,24 @@ const Shop = () => {
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
   const updateLike = useCallback(
-    
     (item) => {
-     setItems(items.map(indItem => {
-        if (indItem !== item) {
-          return indItem
-        } else {
-          return {...item, likes: item.likes + 1}
-        }
-      }))
-  },
-  [], // Tells React to memoize regardless of arguments.
+    items.map(indItem => {
+
+    // setDisable(prevState => ({...prevState, disable: true}))
+    // setText(likeState => ({...likeState, text: console.log(!likeState)}))
+    
+
+      if (indItem !== item) {
+        console.log(item.id)
+        return indItem
+      } 
+      else {
+        return {...item, likes: item.likes + 1}
+      }
+    })
+    },
+    [], // Tells React to memoize regardless of arguments.
   )
-  // setDisable(prevState => ({...prevState, disable: true}))
-  // setText(likeState => ({...likeState, text: console.log(!likeState)}))
 
   
   const listItemsToBuy = () => items.map((book) => (
@@ -157,18 +161,18 @@ const Shop = () => {
 
   return (
     <div >
-       {/* <input
+       <input
         type="text"
         placeholder="Search"
         onChange={(e) => setSearch(e.target.value)}
       />
       {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>
-      ))} */}
+      ))}
         <br></br>
         <br></br>
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
-      <div>{listItemsToBuy()}</div>
+      {/* <div>{listItemsToBuy()}</div> */}
       <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>

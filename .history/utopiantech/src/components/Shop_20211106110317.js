@@ -112,20 +112,24 @@ const Shop = () => {
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
   const updateLike = useCallback(
-    
     (item) => {
-     setItems(items.map(indItem => {
-        if (indItem !== item) {
-          return indItem
-        } else {
-          return {...item, likes: item.likes + 1}
-        }
-      }))
-  },
-  [], // Tells React to memoize regardless of arguments.
+    items.map(indItem => {
+
+    // setDisable(prevState => ({...prevState, disable: true}))
+    // setText(likeState => ({...likeState, text: console.log(!likeState)}))
+    
+
+      if (indItem !== item) {
+        console.log(item.id)
+        return indItem
+      } 
+      else {
+        return {...item, likes: item.likes + 1}
+      }
+    })
+    },
+    [], // Tells React to memoize regardless of arguments.
   )
-  // setDisable(prevState => ({...prevState, disable: true}))
-  // setText(likeState => ({...likeState, text: console.log(!likeState)}))
 
   
   const listItemsToBuy = () => items.map((book) => (
@@ -168,7 +172,7 @@ const Shop = () => {
         <br></br>
         <br></br>
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
-      <div>{listItemsToBuy()}</div>
+      {/* <div>{listItemsToBuy()}</div> */}
       <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>

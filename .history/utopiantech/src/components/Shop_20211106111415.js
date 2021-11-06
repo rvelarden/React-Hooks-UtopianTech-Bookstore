@@ -71,18 +71,18 @@ import React, { useCallback, useEffect, useState } from "react";
 const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
-  const [items, setItems] = React.useState(allItems)
+  const [items, setItems] = React.useState([])
   const [text, setText] = React.useState(false)
   const [disable, setDisable] = React.useState(false)
   const [search, setSearch] = useState("");
   const [filteredusers, setFilteredusers] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/books")
-  //     .then(res => res.json())
-  //     .then(data =>{setItems(data)})
+  useEffect(() => {
+    fetch("http://localhost:3000/books")
+      .then(res => res.json())
+      .then(data =>{listItemsToBuy(data)})
      
-  // }, [])
+  }, [])
 
   // useEffect(() => {
   //   setFilteredusers(

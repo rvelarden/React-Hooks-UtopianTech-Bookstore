@@ -114,7 +114,7 @@ const Shop = () => {
   const updateLike = useCallback(
     
     (item) => {
-     setItems(items.map(indItem => {
+      const updateLike = (item) =>  setItems(items.map(indItem => {
         if (indItem !== item) {
           return indItem
         } else {

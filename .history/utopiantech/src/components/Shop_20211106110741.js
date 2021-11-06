@@ -113,17 +113,13 @@ const Shop = () => {
 
   const updateLike = useCallback(
     
-    (item) => {
-     setItems(items.map(indItem => {
-        if (indItem !== item) {
-          return indItem
-        } else {
-          return {...item, likes: item.likes + 1}
-        }
-      }))
-  },
-  [], // Tells React to memoize regardless of arguments.
-  )
+   
+   
+
+    
+    
+  })
+  
   // setDisable(prevState => ({...prevState, disable: true}))
   // setText(likeState => ({...likeState, text: console.log(!likeState)}))
 

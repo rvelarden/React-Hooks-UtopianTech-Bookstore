@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 
+const Shop = () => {
 
  const allItems = [
     {
@@ -68,7 +69,6 @@ import React, { useCallback, useEffect, useState } from "react";
   ]
 
 
-const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
@@ -84,13 +84,13 @@ const Shop = () => {
      
   // }, [])
 
-  // useEffect(() => {
-  //   setFilteredusers(
-  //     items.filter((item) =>
-  //       item.name.toLowerCase().includes(search.toLowerCase())
-  //     )
-  //   );
-  // }, [search, items]);
+  useEffect(() => {
+    setFilteredusers(
+      items.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, items]);
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
   
@@ -111,21 +111,25 @@ const Shop = () => {
 
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
-  const updateLike = useCallback(
-    
+  const updateLike = 
     (item) => {
-     setItems(items.map(indItem => {
-        if (indItem !== item) {
-          return indItem
-        } else {
-          return {...item, likes: item.likes + 1}
-        }
-      }))
-  },
-  [], // Tells React to memoize regardless of arguments.
-  )
-  // setDisable(prevState => ({...prevState, disable: true}))
-  // setText(likeState => ({...likeState, text: console.log(!likeState)}))
+    // items.map(indItem => {
+
+    // setDisable(prevState => ({...prevState, disable: true}))
+    // // setText(likeState => ({...likeState, text: console.log(!likeState)}))
+    
+
+    //   if (indItem !== item) {
+    //     console.log(item.id)
+    //     return indItem
+    //   } 
+    //   else {
+    //     return {...item, likes: item.likes + 1}
+    //   }
+    // })
+    }
+  //   [], // Tells React to memoize regardless of arguments.
+  
 
   
   const listItemsToBuy = () => items.map((book) => (

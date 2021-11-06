@@ -115,6 +115,7 @@ const Shop = () => {
     
     (item) => {
      setItems(items.map(indItem => {
+       // setDisable(prevState => ({...prevState, disable: true}))
         if (indItem !== item) {
           return indItem
         } else {
@@ -124,7 +125,6 @@ const Shop = () => {
   },
   [], // Tells React to memoize regardless of arguments.
   )
-  // setDisable(prevState => ({...prevState, disable: true}))
   // setText(likeState => ({...likeState, text: console.log(!likeState)}))
 
   

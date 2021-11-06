@@ -77,12 +77,12 @@ const Shop = () => {
   const [search, setSearch] = useState("");
   const [filteredusers, setFilteredusers] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/books")
-  //     .then(res => res.json())
-  //     .then(data =>{setItems(data)})
+  useEffect(() => {
+    fetch("http://localhost:3000/books")
+      .then(res => res.json())
+      .then(data =>{setItems(data)})
      
-  // }, [])
+  }, [])
 
   // useEffect(() => {
   //   setFilteredusers(

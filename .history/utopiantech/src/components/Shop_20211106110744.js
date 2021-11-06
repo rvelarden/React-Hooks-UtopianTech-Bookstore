@@ -111,19 +111,14 @@ const Shop = () => {
 
   const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
-  const updateLike = useCallback(
-    
-    (item) => {
-     setItems(items.map(indItem => {
-        if (indItem !== item) {
-          return indItem
-        } else {
-          return {...item, likes: item.likes + 1}
-        }
-      }))
-  },
-  [], // Tells React to memoize regardless of arguments.
-  )
+  const updateLike = (item) =>  setItems(items.map(indItem => {
+    if (indItem !== item) {
+      return indItem
+    } else {
+      return {...item, likes:  ...item == item.likes }
+    }
+  }))
+  
   // setDisable(prevState => ({...prevState, disable: true}))
   // setText(likeState => ({...likeState, text: console.log(!likeState)}))
 
