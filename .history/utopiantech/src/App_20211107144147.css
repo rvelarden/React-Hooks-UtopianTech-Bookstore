@@ -123,28 +123,24 @@ button:hover {
   transform: translate(-50%, -50%);
 }
 
-a{
-  /* left: 72%; */
+.leftbutton{
+  left: 72%;
   font-size: 20px;
   /* position:initial; */
   /* margin: 0; */
   font-family: sans-serif;
   /* padding: 0; */
-  /* width: 100%; */
-  /* display: inline; */
-  /* outline: none; */
-  /* text-decoration: none; */
+  width: 100%;
+  display: inline;
+  outline: none;
+  text-decoration: none;
   display: inline-block;
-  width: 5.5%;
+  width: 19.5%;
   margin-right: 0.625%;
   text-align: center;
   line-height: 3;
-  color: rgb(40, 28, 212);
+  color: black;
   margin-right: 0;
-  /* background: whitesmokeow; */
-  /* border: #1938e7 solid 1px; */
-}
-
-a:hover{
-  color:grey
+  /* background: yellow; */
+  
 }

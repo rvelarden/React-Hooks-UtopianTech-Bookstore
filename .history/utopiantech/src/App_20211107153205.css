@@ -123,7 +123,7 @@ button:hover {
   transform: translate(-50%, -50%);
 }
 
-a{
+.leftbutton:hover{
   /* left: 72%; */
   font-size: 20px;
   /* position:initial; */
@@ -143,8 +143,4 @@ a{
   margin-right: 0;
   /* background: whitesmokeow; */
   /* border: #1938e7 solid 1px; */
-}
-
-a:hover{
-  color:grey
 }

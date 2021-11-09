@@ -66,9 +66,9 @@ const Shop = () => {
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
   const [text, setText] = React.useState(false)
-  const [disable, setDisable] = React.useState(false)
-  const [search, setSearch] = useState("");
-  const [filteredusers, setFilteredusers] = useState([]);
+  // const [disable, setDisable] = React.useState(false)
+  // const [search, setSearch] = useState("");
+  // const [filteredusers, setFilteredusers] = useState([]);
 
   // useEffect(() => {
   //   fetch("http://localhost:3000/books")
@@ -124,21 +124,22 @@ const Shop = () => {
   const listItemsToBuy = () => items.map((book) => (
     <div key={book.id} className="card">
       <div className="font-text"><h2>{`${book.name}`}</h2></div>
-      <h2>{`Precio: $${book.price}`}</h2>
+      <h2>{`Price: $${book.price}`}</h2>
       <img src={book.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
-      <h2>Me gusta: {book.likes}</h2>
+      <h2>Likes: {book.likes}</h2>
       <div>
-      <button disable={items.disable} text={items.text} onClick={()=> updateLike(book)}> Me gusta </button>
-      <br></br>
-      <button type="submit" onClick={() => addToCart(book)}> Comprar </button>
+      <button disable={items.disable} text={items.text} onClick={()=> updateLike(book)}> {text ? "Liked!" : "Like"} </button>
+      <button type="submit" onClick={() => addToCart(book)}> Add </button>
       </div>
       <div>
         
       </div>
       <h2>Cantidad: {amountOfItems(book.id)}</h2>
-      <button type="submit" onClick={() => removeFromCart(book)}> Remover </button>
+      <button type="submit" onClick={() => removeFromCart(book)}> Remove </button>
     </div>
   ))
+
+
 
   // const listItemsInCart = () => items.map((item) => (
   //   <div key={item.id}>
@@ -161,11 +162,11 @@ const Shop = () => {
         <br></br>
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
       <div>{listItemsToBuy()}</div>
-      <h1 className="center-text">CARRITO DE COMPRAS</h1> 
+      <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>
           <br></br>
-        <button className="center-button" onClick={() => setCart([])}>REMOVER TODO</button>
+        <button className="center-button" onClick={() => setCart([])}>Clear</button>
       </div>
     </div>
   )

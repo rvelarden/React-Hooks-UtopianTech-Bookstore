@@ -123,7 +123,7 @@ button:hover {
   transform: translate(-50%, -50%);
 }
 
-a{
+.leftbutton{
   /* left: 72%; */
   font-size: 20px;
   /* position:initial; */
@@ -139,12 +139,8 @@ a{
   margin-right: 0.625%;
   text-align: center;
   line-height: 3;
-  color: rgb(40, 28, 212);
+  color: rgb(0, 0, 0);
   margin-right: 0;
-  /* background: whitesmokeow; */
+  /* background: yellow; */
   /* border: #1938e7 solid 1px; */
-}
-
-a:hover{
-  color:grey
 }

@@ -135,7 +135,7 @@ const Shop = () => {
       <div>
         
       </div>
-      <h2>Cantidad: {amountOfItems(book.id)}</h2>
+      <h2>{amountOfItems(book.id)}C</h2>
       <button type="submit" onClick={() => removeFromCart(book)}> Remover </button>
     </div>
   ))
