@@ -66,7 +66,6 @@ const Shop = () => {
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
   const [text, setText] = React.useState(false)
-  const [dropDown, setDropDown] = useState('')
   // const [disable, setDisable] = React.useState(false)
   // const [search, setSearch] = useState("");
   // const [filteredusers, setFilteredusers] = useState([]);
@@ -161,7 +160,7 @@ const Shop = () => {
       ))} */}
       <select onChange={(e)=> setDropDown(e.target.value)}>
               <option>Select category</option>
-                  {items.map(book => <option value={dropDown}>{book.name}</option>)}
+                  {items.map(bike => <option value={dropDown}>{book.name}</option>)}
       </select>
         <br></br>
         <br></br>

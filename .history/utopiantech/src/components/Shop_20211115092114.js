@@ -66,7 +66,6 @@ const Shop = () => {
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
   const [text, setText] = React.useState(false)
-  const [dropDown, setDropDown] = useState('')
   // const [disable, setDisable] = React.useState(false)
   // const [search, setSearch] = useState("");
   // const [filteredusers, setFilteredusers] = useState([]);
@@ -161,8 +160,8 @@ const Shop = () => {
       ))} */}
       <select onChange={(e)=> setDropDown(e.target.value)}>
               <option>Select category</option>
-                  {items.map(book => <option value={dropDown}>{book.name}</option>)}
-      </select>
+                  {users.map(bike => <option value={dropDown}>{bike.name}</option>)}
+          </select>
         <br></br>
         <br></br>
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
