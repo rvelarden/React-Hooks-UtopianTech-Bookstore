@@ -170,7 +170,7 @@ const Shop = () => {
       ))} */}
       <select onChange={(e)=> setDropDown(e.target.value)}>
               <option>Select category</option>
-                  {items.map(book => <option value={dropDown}>{book.category}</option>)}
+                  {items.map(book => <option value={dropDown}>{book.name}</option>)}
       </select>
         <br></br>
         <br></br>
