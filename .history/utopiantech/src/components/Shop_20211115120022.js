@@ -170,7 +170,6 @@ const Shop = () => {
       {/* <div>{listItemsToBuy()}</div> */}
       <br></br>
       <div>
-
       <input
         type="text"
         placeholder="Search"

@@ -170,7 +170,8 @@ const Shop = () => {
       {/* <div>{listItemsToBuy()}</div> */}
       <br></br>
       <div>
-
+        
+      </div>
       <input
         type="text"
         placeholder="Search"
@@ -179,7 +180,6 @@ const Shop = () => {
       {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>
       ))}
-      </div>
       <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>

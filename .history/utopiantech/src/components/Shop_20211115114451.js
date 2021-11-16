@@ -77,8 +77,8 @@ const Shop = () => {
   const [text, setText] = React.useState(false)
   const [dropDown, setDropDown] = useState('')
   // const [disable, setDisable] = React.useState(false)
-  const [search, setSearch] = useState("");
-  const [filteredusers, setFilteredusers] = useState([]);
+  // const [search, setSearch] = useState("");
+  // const [filteredusers, setFilteredusers] = useState([]);
 
   // useEffect(() => {
   //   fetch("http://localhost:3000/books")
@@ -87,13 +87,13 @@ const Shop = () => {
      
   // }, [])
 
-  useEffect(() => {
-    setFilteredusers(
-      items.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [search, items]);
+  // useEffect(() => {
+  //   setFilteredusers(
+  //     items.filter((item) =>
+  //       item.name.toLowerCase().includes(search.toLowerCase())
+  //     )
+  //   );
+  // }, [search, items]);
 
   const addToCart = (item) => setCart((currentCart) => [...currentCart, item]);
   
@@ -160,26 +160,22 @@ const Shop = () => {
 
   return (
     <div >
-      <select onChange={(e)=> setDropDown(e.target.value)}>
-              <option>Select category</option>
-                  {items.map(book => <option value={dropDown}>{book.category}</option>)}
-      </select>
-        <br></br>
-        <br></br>
-      <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
-      {/* <div>{listItemsToBuy()}</div> */}
-      <br></br>
-      <div>
-
-      <input
+       {/* <input
         type="text"
         placeholder="Search"
         onChange={(e) => setSearch(e.target.value)}
       />
       {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>
-      ))}
-      </div>
+      ))} */}
+      <select onChange={(e)=> setDropDown(e.target.value)}>
+              <option>Select category</option>
+                  {items.map(book => <option value={dropDown}>{faBookMedical..category}</option>)}
+      </select>
+        <br></br>
+        <br></br>
+      <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
+      <div>{listItemsToBuy()}</div>
       <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>

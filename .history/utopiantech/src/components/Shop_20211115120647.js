@@ -170,11 +170,10 @@ const Shop = () => {
       {/* <div>{listItemsToBuy()}</div> */}
       <br></br>
       <div>
-
       <input
         type="text"
         placeholder="Search"
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(item) => setSearch(item.target.value)}
       />
       {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>

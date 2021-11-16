@@ -169,8 +169,6 @@ const Shop = () => {
       <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
       {/* <div>{listItemsToBuy()}</div> */}
       <br></br>
-      <div>
-
       <input
         type="text"
         placeholder="Search"
@@ -179,7 +177,6 @@ const Shop = () => {
       {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>
       ))}
-      </div>
       <h1 className="center-text">CART</h1> 
       <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>
