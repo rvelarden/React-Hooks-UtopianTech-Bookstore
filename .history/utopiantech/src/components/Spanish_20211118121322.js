@@ -65,8 +65,8 @@ const Shop = () => {
   const [cart, setCart] = React.useState([]);
   const cartTotal = cart.reduce((total, { price = 0 }) => total + price, 0);
   const [items, setItems] = React.useState(allItems)
-  // const [text, setText] = React.useState(false)
-  // const [disable, setDisable] = React.useState(false)
+  const [text, setText] = React.useState(false)
+  const [disable, setDisable] = React.useState(false)
   // const [search, setSearch] = useState("");
   // const [filteredusers, setFilteredusers] = useState([]);
 
