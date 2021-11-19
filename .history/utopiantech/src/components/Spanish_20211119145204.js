@@ -67,8 +67,8 @@ const Shop = () => {
   const [items, setItems] = React.useState(allItems)
   // const [text, setText] = React.useState(false)
   // const [disable, setDisable] = React.useState(false)
-  const [search, setSearch] = useState("");
-  const [filteredusers, setFilteredusers] = useState([]);
+  // const [search, setSearch] = useState("");
+  // const [filteredusers, setFilteredusers] = useState([]);
 
   // useEffect(() => {
   //   fetch("http://localhost:3000/books")
