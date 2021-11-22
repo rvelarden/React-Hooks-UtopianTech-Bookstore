@@ -32,15 +32,11 @@ body {
   margin: 3rem 5rem;
   box-shadow: 3px 4px #20d41a;
   background-color: #0d130d;
-  /* font-family: monospace; */
+  font-family: monospace;
 }
 
 .font-text{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: #20d41a;
-}
-.font-text-text{
-  font-family: monospace;
   color: #20d41a;
 }
 
