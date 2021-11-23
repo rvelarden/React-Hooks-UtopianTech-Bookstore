@@ -168,7 +168,7 @@ const Shop = () => {
       />
       <select onChange={(e)=> setDropDown(e.target.value)} className="font-text-text">
               <option className="font-text-text">Select category</option>
-              {items.map(book => <option value={dropDown}>{book.category}</option>)}
+                  {items.map(book => <option value={dropDown}>{book.category}</option>)}
       </select>
         <br></br>
         <br></br>

@@ -168,7 +168,7 @@ const Shop = () => {
       />
       <select onChange={(e)=> setDropDown(e.target.value)} className="font-text-text">
               <option className="font-text-text">Select category</option>
-              {items.map(book => <option value={dropDown}>{book.category}</option>)}
+                  {items.map(book => <option value={dropDown}>{book.category}</option>)}
       </select>
         <br></br>
         <br></br>
@@ -181,8 +181,8 @@ const Shop = () => {
         <div>{listItemsToBuy(item)}</div>
       ))} */}
       </div>
-      <h1 className="center-text font-text-text">CART</h1> 
-      <h1 className="center-text font-text-text">Total: ${cartTotal}</h1>
+      <h1 className="center-text">CART</h1> 
+      <h1 className="center-textfont-text-text">Total: ${cartTotal}</h1>
       <div>
           <br></br>
         <button className="center-button" onClick={() => setCart([])}>Clear</button>

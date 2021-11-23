@@ -160,29 +160,28 @@ const Shop = () => {
 
   return (
     <div >
-      <input
-        type="text"
-        placeholder="Search"
-        onChange={(e) => setSearch(e.target.value)}
-        className="font-text-text"
-      />
-      <select onChange={(e)=> setDropDown(e.target.value)} className="font-text-text">
-              <option className="font-text-text">Select category</option>
-              {items.map(book => <option value={dropDown}>{book.category}</option>)}
+      <select onChange={(e)=> setDropDown(e.target.value)} font-text-text>
+              <option>Select category</option>
+                  {items.map(book => <option value={dropDown}>{book.category}</option>)}
       </select>
         <br></br>
         <br></br>
-      <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img><h1 className="font-text-text">Tech</h1>
+      <img style={{ width: "200px", height: "80px", objectFit: "cover" }} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Utopia-logo-1.png"></img>TECH
       <div className="font-text-text">{listItemsToBuy()}</div>
       <br></br>
       <div>
 
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={(e) => setSearch(e.target.value)}
+      />
       {/* {filteredusers.map((item) => (
         <div>{listItemsToBuy(item)}</div>
       ))} */}
       </div>
-      <h1 className="center-text font-text-text">CART</h1> 
-      <h1 className="center-text font-text-text">Total: ${cartTotal}</h1>
+      <h1 className="center-text">CART</h1> 
+      <h1 className="center-text">Total: ${cartTotal}</h1>
       <div>
           <br></br>
         <button className="center-button" onClick={() => setCart([])}>Clear</button>
