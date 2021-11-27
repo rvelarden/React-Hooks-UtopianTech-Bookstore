@@ -96,8 +96,7 @@ const Book = (props) => {
     const updateLike =
     
         (item) => {
-         setItems((currentCart) => {
-            currentCart.findIndex((cartItem) => cartItem.id === item.id);
+            const indexOfItemToRemove = currentCart.findIndex((cartItem) => cartItem.id === item.id);
     
           if (indexOfItemToRemove === -1) {
             return currentCart;
@@ -108,7 +107,6 @@ const Book = (props) => {
             ...currentCart.slice(indexOfItemToRemove + 1),
           ];
         });
-      
       }
 
     //   const listItemsToBuy = () => items.map((book) => (

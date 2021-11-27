@@ -97,18 +97,10 @@ const Book = (props) => {
     
         (item) => {
          setItems((currentCart) => {
-            currentCart.findIndex((cartItem) => cartItem.id === item.id);
-    
-          if (indexOfItemToRemove === -1) {
-            return currentCart;
-          }
-    
-          return [
-            ...currentCart.slice(0, indexOfItemToRemove),
-            ...currentCart.slice(indexOfItemToRemove + 1),
-          ];
-        });
-      
+            const indexOfItemToRemove = currentCart.map((indItem) => indItem.id === item.id)
+          console.log(indItem)
+          items.map(indItem => {
+          })
       }
 
     //   const listItemsToBuy = () => items.map((book) => (

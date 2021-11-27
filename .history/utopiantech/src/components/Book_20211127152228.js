@@ -96,19 +96,18 @@ const Book = (props) => {
     const updateLike =
     
         (item) => {
-         setItems((currentCart) => {
-            currentCart.findIndex((cartItem) => cartItem.id === item.id);
-    
-          if (indexOfItemToRemove === -1) {
-            return currentCart;
-          }
-    
-          return [
-            ...currentCart.slice(0, indexOfItemToRemove),
-            ...currentCart.slice(indexOfItemToRemove + 1),
-          ];
-        });
-      
+         setItems((currentCart => {
+            currentCart.map((indItem) => {
+                if (indItem !== item) {
+                return indItem
+                } else {
+                return {...item, likes: item.likes + 1}
+                }
+                    }
+        
+          
+         
+               }       })
       }
 
     //   const listItemsToBuy = () => items.map((book) => (

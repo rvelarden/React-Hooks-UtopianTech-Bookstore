@@ -108,7 +108,7 @@ const Book = (props) => {
             ...currentCart.slice(indexOfItemToRemove + 1),
           ];
         });
-      
+      };
       }
 
     //   const listItemsToBuy = () => items.map((book) => (
