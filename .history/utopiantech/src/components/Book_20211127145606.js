@@ -95,12 +95,12 @@ const Book = (props) => {
 
     const updateLike =
     
-        (item) => {
-         setItems((currentCart) => {
-            const indexOfItemToRemove = currentCart.findIndex((indItem) => indItem.id === item.id)
-          console.log()
-          })
-      }
+        (props) => {
+         setItems(props.book.map(indItem => {
+           console.log(indItem)
+          }))
+   
+        }
 
     //   const listItemsToBuy = () => items.map((book) => (
     //     <div key={book.id} className="card">

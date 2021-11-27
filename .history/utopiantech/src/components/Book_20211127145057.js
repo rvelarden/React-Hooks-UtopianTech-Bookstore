@@ -93,14 +93,20 @@ const Book = (props) => {
     
       const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
-    const updateLike =
+    const updateLike = useCallback(
     
         (item) => {
-         setItems((currentCart) => {
-            const indexOfItemToRemove = currentCart.findIndex((indItem) => indItem.id === item.id)
-          console.log()
-          })
-      }
+            console.log(item)
+        //  setItems(items.map(indItem => {
+        //     if (indItem !== item) {
+        //       return indItem
+        //     } else {
+        //       return {...item, likes: item.likes + 1}
+        //     }
+        //   }))
+      },
+      [], // Tells React to memoize regardless of arguments.
+      )
 
     //   const listItemsToBuy = () => items.map((book) => (
     //     <div key={book.id} className="card">
