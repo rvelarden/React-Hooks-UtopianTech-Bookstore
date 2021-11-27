@@ -98,7 +98,6 @@ const Book = (props) => {
         (props) => {
             setItems((currentCart) => {
          const Like = currentCart.map(indItem=> indItem.likes !== props.likes)
-         console.log(Like)
         //  if (Like !== props) {
         //     return Like
         //   } else {

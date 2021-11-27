@@ -97,13 +97,12 @@ const Book = (props) => {
     
         (props) => {
             setItems((currentCart) => {
-         const Like = currentCart.map(indItem=> indItem.likes !== props.likes)
-         console.log(Like)
-        //  if (Like !== props) {
-        //     return Like
-        //   } else {
-        //     return {...props, likes: props.likes + 1}
-        //   }
+         const Like = currentCart.map(indItem=> console.log(indItem.likes !== props.likes))
+         if (indItem !== props) {
+            return indItem
+          } else {
+            return {...props, likes: props.likes + 1}
+          }
              //indItem !== props ? indItem : {...props, likes: props.likes + 1})
             
                 

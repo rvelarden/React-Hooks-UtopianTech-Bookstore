@@ -96,15 +96,8 @@ const Book = (props) => {
     const updateLike = 
     
         (props) => {
-            setItems((currentCart) => {
-         const Like = currentCart.map(indItem=> indItem.likes !== props.likes)
-         console.log(Like)
-        //  if (Like !== props) {
-        //     return Like
-        //   } else {
-        //     return {...props, likes: props.likes + 1}
-        //   }
-             //indItem !== props ? indItem : {...props, likes: props.likes + 1})
+            setItems((props) => {
+                props.map(indItem=> console.log(props)) //indItem !== props ? indItem : {...props, likes: props.likes + 1})
             
                 
                 
