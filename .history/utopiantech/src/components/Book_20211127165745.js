@@ -97,8 +97,8 @@ const Book = (props) => {
     
         (props) => {
             setItems((currentCart) => {
-            currentCart.map(indItem=> console.log(indItem)) //indItem !== props ? indItem : {...props, likes: props.likes + 1})
-            
+            currentCart.findIndex( (indItem)=> console.log(//=>indItem !== props ? indItem : {...props, likes: props.likes + 1}
+            )
                 
                 
                 // if (indItem !== item) {

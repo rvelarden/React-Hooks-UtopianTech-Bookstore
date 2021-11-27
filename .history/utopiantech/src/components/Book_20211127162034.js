@@ -93,23 +93,22 @@ const Book = (props) => {
     
     const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
-    const updateLike = 
+    const updateLike =
     
         (props) => {
-            setItems((currentCart) => {
-            currentCart.map(indItem=> console.log(indItem)) //indItem !== props ? indItem : {...props, likes: props.likes + 1})
-            
-                
-                
-                // if (indItem !== item) {
-                //     return indItem
+            setItems((currentLikes) => {
+                const indexOfItemToRemove = currentLikes.map(indItem => indItem.id === props.id )
+                console.log(currentLikes)
+                // if (indexOfItemToRemove !== item) {
+                //     return indexOfItemToRemove
                 //   } else {
                 //     return {...item, likes: item.likes + 1}
                 //   }
-          
-
+               
               });
-            }
+            };
+      
+    
 
     //   const listItemsToBuy = () => items.map((book) => (
     //     <div key={book.id} className="card">

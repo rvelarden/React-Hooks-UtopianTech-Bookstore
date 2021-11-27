@@ -97,14 +97,12 @@ const Book = (props) => {
     
         (props) => {
             setItems((currentCart) => {
-            currentCart.map(indItem=> console.log(indItem)) //indItem !== props ? indItem : {...props, likes: props.likes + 1})
-            
-                
-                
-                // if (indItem !== item) {
-                //     return indItem
+                const indexOfItemToRemove = currentCart.map()
+          
+                // if (indexOfItemToRemove !== props) {
+                //     return currentCart
                 //   } else {
-                //     return {...item, likes: item.likes + 1}
+                //     return {...props, likes: props.likes + 1}
                 //   }
           
 

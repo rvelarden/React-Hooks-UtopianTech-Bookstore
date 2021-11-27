@@ -93,23 +93,25 @@ const Book = (props) => {
     
     const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
-    const updateLike = 
+    const updateLike = useCallback(
     
         (props) => {
-            setItems((currentCart) => {
-            currentCart.map(indItem=> console.log(indItem)) //indItem !== props ? indItem : {...props, likes: props.likes + 1})
-            
-                
-                
-                // if (indItem !== item) {
-                //     return indItem
+            setItems((currentLikes) => {
+                currentLikes.map(indItem => {indItem.id !== props.id 
+                    console.log(indItem)})
+                  
+                // console.log(currentLikes)
+                // if (indItem !== props) {
+                //     return props
                 //   } else {
-                //     return {...item, likes: item.likes + 1}
+                //     return {...props, likes: props.likes + 1}
                 //   }
-          
-
+               
               });
-            }
+            };
+            [],
+    )
+    
 
     //   const listItemsToBuy = () => items.map((book) => (
     //     <div key={book.id} className="card">
