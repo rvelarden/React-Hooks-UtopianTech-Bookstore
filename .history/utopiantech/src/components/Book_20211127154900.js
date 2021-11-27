@@ -91,22 +91,20 @@ const Book = (props) => {
         });
       };
     
-    const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
+      const amountOfItems = (id) => cart.filter((item) => item.id === id).length;
 
     const updateLike =
     
         (item) => {
-            setCart((currentLikes) => {
-                 currentLikes.map((indItem) => indItem.id === item.id);
-          
+         setItems(currentCart => {
+            currentCart.map(indItem => {
                 if (indItem !== item) {
-                    return indItem
-                  } else {
-                    return {...item, likes: item.likes + 1}
-                  }
-              });
-            };
-      
+                  return indItem
+                } else {
+                  return {...item, likes: item.likes + 1}
+                }
+        }
+      }
     
 
     //   const listItemsToBuy = () => items.map((book) => (

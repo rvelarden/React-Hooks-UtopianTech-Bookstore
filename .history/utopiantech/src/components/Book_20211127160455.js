@@ -96,17 +96,15 @@ const Book = (props) => {
     const updateLike =
     
         (item) => {
-            setCart((currentLikes) => {
-                 currentLikes.map((indItem) => indItem.id === item.id);
-          
+         setItems(currentLikes => {
+            currentLikes.map(indItem => cartItem.id === item.id)
                 if (indItem !== item) {
-                    return indItem
-                  } else {
-                    return {...item, likes: item.likes + 1}
-                  }
-              });
-            };
-      
+                  return indItem
+                } else {
+                  return {...item, likes: item.likes + 1}
+            
+         })
+      }
     
 
     //   const listItemsToBuy = () => items.map((book) => (
