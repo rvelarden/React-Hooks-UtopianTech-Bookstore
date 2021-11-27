@@ -97,8 +97,8 @@ const Book = (props) => {
     
         (item) => {
          setItems((currentCart) => {
-            const indexOfItemToRemove = currentCart.map((indItem) => indItem.id === item.id)
-          console.log(indexOfItemToRemove)
+            const indexOfItemToRemove = currentCart.findIndex((indItem) => indItem.id === item.id)
+          console.log(indItem)
           })
       }
 
@@ -126,7 +126,7 @@ const Book = (props) => {
             <img src={props.book.image} style={{ width: "200px", height: "300px", objectFit: "cover" }} className="book-avatar" />
             <h2>Likes: {props.book.likes}</h2>
             <div>
-            <button  onClick={updateLike}> {"Like"} </button>
+            <button disable={items.disable} onClick={updateLike}> {"Like"} </button>
             <button type="submit" onClick={() => addToCart(props.book)}> Add </button>
             </div>
             <h2>Qty: {amountOfItems(props.book.id)}</h2>
